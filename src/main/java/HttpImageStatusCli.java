@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class HttpImageStatusCli {
     private final HttpStatusImageDownloader downloader = new HttpStatusImageDownloader();
     private final HttpStatusChecker checker = new HttpStatusChecker();
-    private boolean isDigit(String in) {
+    private boolean isValidDigit(String in) {
         if(in.isEmpty()) {
             return false;
         }
@@ -21,9 +21,9 @@ public class HttpImageStatusCli {
     }
     public void askStatus() {
         Scanner in = new Scanner(System.in);
-        System.out.println("Enter HTTP status code: ");
+        System.out.println("Enter HTTP status code:");
         String code = in.nextLine();
-        while (!isDigit(code)) {
+        while (!isValidDigit(code)) {
             System.out.println("Please enter valid number:");
             code = in.nextLine();
         }
